@@ -1,5 +1,6 @@
 package com.example.android.githubsearchwithintents;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -65,11 +66,9 @@ public class MainActivity extends AppCompatActivity implements GitHubSearchAdapt
 
     @Override
     public void onSearchItemClick(GitHubUtils.SearchResult searchResult) {
-        if (mToast != null) {
-            mToast.cancel();
-        }
-        mToast = Toast.makeText(this, searchResult.description, Toast.LENGTH_LONG);
-        mToast.show();
+        Intent detailedSearchResultIntent = new Intent(this, SearchResultDetailActivity.class);
+        detailedSearchResultIntent.putExtra(GitHubUtils.EXTRA_SEARCH_RESULT, searchResult);
+        startActivity(detailedSearchResultIntent);
     }
 
     public class GitHubSearchTask extends AsyncTask<String, Void, String> {

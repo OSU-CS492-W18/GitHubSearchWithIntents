@@ -6,6 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -13,12 +14,14 @@ import java.util.ArrayList;
  */
 
 public class GitHubUtils {
+    public static final String EXTRA_SEARCH_RESULT = "GitHubUtils.SearchResult";
+
     final static String GITHUB_SEARCH_BASE_URL = "https://api.github.com/search/repositories";
     final static String GITHUB_SEARCH_QUERY_PARAM = "q";
     final static String GITHUB_SEARCH_SORT_PARAM = "sort";
     final static String GITHUB_SEARCH_SORT_VALUE = "stars";
 
-    public static class SearchResult {
+    public static class SearchResult implements Serializable {
         public String fullName;
         public String description;
         public String htmlURL;
