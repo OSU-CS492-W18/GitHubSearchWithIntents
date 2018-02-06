@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GitHub Search with Intents</string>
+
+    <string name="loading_error_message">Failed to execute your search.  Check your internet connection.</string>
+</resources>
